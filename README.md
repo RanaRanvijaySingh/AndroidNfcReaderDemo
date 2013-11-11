@@ -1,23 +1,22 @@
 AndroidNfcReaderDemo
 ====================
-This application shows how to read a nfc tag in your application .</br>
-There are few new terms that you need to know before you start coding. Few of them are :</br>
-
-NfcAdapter - extending from the object class uses helper getDefaultAdapter(Context) to get the default NFC adapter.</br>
-</br></br>
-PendingIntent - If you want to use some other application and want to perform some operation then you pass PendingIntent that gives you the right permission and identity.
-</br>
+This application shows how to read a nfc tag in your application .<br/>
+There are few new terms that you need to know before you start coding. Few of them are :<br/>
+<br/>
+NfcAdapter - extending from the object class uses helper getDefaultAdapter(Context) to get the default NFC adapter.<br/>
+<br/>
+PendingIntent - If you want to use some other application and want to perform some operation then you pass PendingIntent that gives you the right permission and identity.<br/>
+<br/>
 IntentFilter -  It is an object create in the xml file mainly in the mainfest file using the intent-filter tag which describes the operations to be performed on the parent component.
-</br>
+<br/>
 NDEFMessage - NFC Data Exchange Format is a light weight binary format used to encapsulate binary data.
-</br>
 ____________________________________________________________________________________________________________________________________________________________
 After this there are few steps that you need to follow:
-</br>
-Step 1: Give the NFC permission in the manifest file .</br>
-Step 2: Create the layout .</br>
-Step 3: Create class to initialize and handle the NFC objects .</br>
-</br>
+<br/>
+Step 1: Give the NFC permission in the manifest file .<br/>
+Step 2: Create the layout .<br/>
+Step 3: Create class to initialize and handle the NFC objects .<br/>
+<br/>
 ____________________________________________________________________________________________________________________________________________________________
 Step 1: Give the NFC permission in the manifest file .
 
