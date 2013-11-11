@@ -12,8 +12,8 @@ import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -21,7 +21,6 @@ public class MainActivity extends Activity {
 	private Context context;
 	private PendingIntent mNfcPendingIntent;
 	private IntentFilter[] mReadTagFilters;
-	private EditText edtEnterUrl;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +32,6 @@ public class MainActivity extends Activity {
 		mNfcPendingIntent = PendingIntent.getActivity(this, 0, new Intent(this,
 				getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP
 				| Intent.FLAG_ACTIVITY_CLEAR_TOP), 0);
-
-		IntentFilter discovery = new IntentFilter(
-				NfcAdapter.ACTION_TAG_DISCOVERED);
 
 		IntentFilter ndefDetected = new IntentFilter(
 				NfcAdapter.ACTION_NDEF_DISCOVERED);
@@ -93,13 +89,12 @@ public class MainActivity extends Activity {
 		if (messages[0] != null) {
 			String result = "";
 			byte[] payload = messages[0].getRecords()[0].getPayload();
-			// this assumes that we get back am SOH followed by host/code
-			for (int b = 1; b < payload.length; b++) { // skip SOH
+
+			for (int b = 1; b < payload.length; b++) {
 				result += (char) payload[b];
 			}
-			Toast.makeText(getApplicationContext(),
-					"Tag has : " + result, Toast.LENGTH_LONG)
-					.show();
+			Toast.makeText(getApplicationContext(), "Tag has : " + result,
+					Toast.LENGTH_LONG).show();
 		}
 	}
 }
